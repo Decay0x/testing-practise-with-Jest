@@ -12,4 +12,25 @@ const reverseString = (string) => {
   return 'incorrect input';
 };
 
-export { capitalize, reverseString };
+const calculator = {
+  add: (a, b) => {
+    return +a + +b;
+  },
+  subtract: (a, b) => {
+    return +a - +b;
+  },
+  multiply: (a, b) => {
+    return +a * +b;
+  },
+  divide: (a, b) => {
+    return +a / +b;
+  },
+};
+
+const caesarCipher = (str, shift) => {
+  return str;
+};
+
+export { capitalize, reverseString, calculator, caesarCipher };
+
+caesarCipher();
