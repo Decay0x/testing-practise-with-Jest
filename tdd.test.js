@@ -2,6 +2,7 @@ import { capitalize } from './tdd.js';
 import { reverseString } from './tdd.js';
 import { calculator } from './tdd.js';
 import { caesarCipher } from './tdd.js';
+import { analyzeArray } from './tdd.js';
 
 /* capitalize string tests */
 test('capitalize exists', () => {
@@ -125,4 +126,45 @@ test('divide takes undefined input returns NaN', () => {
 /* ceasar cipher */
 test('ceasarCipher function exists', () => {
   expect(caesarCipher).toBeDefined();
+});
+
+test('passing an invalid input to cipher', () => {
+  expect(caesarCipher(2, 4)).toBe('Invalid input');
+});
+
+test('the cipher works', () => {
+  expect(caesarCipher('xyz', 3)).toBe('abc');
+});
+
+test('check cipher is case sensitive', () => {
+  expect(caesarCipher('HeLLo', 3)).toBe('KhOOr');
+});
+
+test('check cipher keeps punctuation', () => {
+  expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
+});
+
+/* analyzeArray */
+
+test('analyzeArray exists', () => {
+  expect(analyzeArray).toBeDefined();
+});
+
+test('not an array is given to analyzeArray', () => {
+  expect(analyzeArray('hello')).toBe('Invalid input');
+});
+
+test('inputs of the array given must be numbers', () => {
+  expect(analyzeArray([1, 'hello', 2])).toBe(
+    'All the inputs of the array needs to be numbers'
+  );
+});
+
+test('analyze array returns the correct results', () => {
+  expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({
+    average: 4,
+    min: 1,
+    max: 8,
+    length: 6,
+  });
 });
